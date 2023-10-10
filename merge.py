@@ -1,19 +1,15 @@
 def merge_list(list1, list2):
-    # Merge the two lists
-    list3 = list1 + list2
+    if not (isinstance(list1, list) and isinstance(list2, list)):
+        raise TypeError("Both inputs must be lists")
 
-    # Check if all elements are integers
-    for i in list3:
-        if not isinstance(i, int):
-            raise TypeError("Expected Int")
+    if not all(isinstance(element, int) for element in list1 + list2):
+        raise TypeError("All elements in the lists must be integers")
 
-    # Selection sort algorithm
-    n = len(list3)
-    for i in range(n - 1):
-        min_index = i
-        for j in range(i + 1, n):
-            if list3[j] < list3[min_index]:
-                min_index = j
-        list3[i], list3[min_index] = list3[min_index], list3[i]
+    merged_list = list1 + list2
 
-    return list3
+    for i in range(len(merged_list)):
+        for j in range(0, len(merged_list) - i - 1):
+            if merged_list[j] > merged_list[j + 1]:
+                merged_list[j], merged_list[j + 1] = merged_list[j + 1], merged_list[j]
+
+    return merged_list
