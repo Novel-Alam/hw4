@@ -1,0 +1,2 @@
+Two purposes of inheritance is that one it allows you to reuse code. So instead of making an entirly new class that is similar to another class, you can create a base class that holds the code in common and create 2 child classes that inheriti from it and build on new features. 
+Another purpose is that inheritance allows for polymorpism which is an important concept in CS where one object can be of different forms which allows for a consistant interface to interface with the object.
