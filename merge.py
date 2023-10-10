@@ -2,7 +2,7 @@ def merge_list(list1, list2):
     if not (isinstance(list1, list) and isinstance(list2, list)):
         raise TypeError("Both inputs must be lists")
 
-    if not all(isinstance(element, int) for element in list1 + list2):
+    if not all(isinstance(element, int) for sublist in [list1, list2] for element in sublist):
         raise TypeError("All elements in the lists must be integers")
 
     merged_list = list1 + list2
